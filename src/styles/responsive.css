@@ -31,8 +31,12 @@
         padding-left: 16px;
     }
 
-    .reviews__container {
-        margin-top: 10px;
+    .other_users_review {
+        margin-top: 5px;
+    }
+
+    .review {
+        height: 100px;
     }
 
 }
@@ -58,8 +62,12 @@
     .navbar-link {
         padding: 30px 5px;
     }
-    .reviews__container {
-        margin-top: 10px;
+    .other_users_review {
+        margin-top: 5px;
+    }
+
+    .review {
+        height: 150px;
     }
 }
 
@@ -111,12 +119,13 @@
         grid-column-gap: 10px;
     }
 
-    .reviews__container {
+    .other_users_reviews {
         height: 550px;
     }
 
     .review {
         display: block;
+        height: auto;
     }
 }
 

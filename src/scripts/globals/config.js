@@ -3,6 +3,7 @@ const CONFIG = {
     BASE_SMALL_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/small/',
     BASE_MEDIUM_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/medium/',
     BASE_LARGE_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/large/',
+    KEY: '12345',
     CACHE_NAME: new Date().toISOString(),
     DATABASE_NAME: 'restaurant-catalogue-database',
     DATABASE_VERSION: 1,

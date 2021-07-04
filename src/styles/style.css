@@ -269,6 +269,11 @@ movie
 }
 
 .reviews__container {
+    display: grid;
+    grid-row-gap: 5px;
+}
+
+.other_users_reviews {
     margin: 0 auto;
     width: 100%;
     white-space: nowrap;
@@ -280,6 +285,7 @@ movie
     background-color: white;
     border-radius: 5px;
     display: inline-block;
+    overflow-y: auto;
     padding: 16px;
     margin: 5px;
     border: 1px solid silver;
@@ -298,6 +304,25 @@ movie
 
 .review__content::before, .review__content::after {
     content: '"';
+}
+
+.form__review {
+    display: inline-block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#submit_review {
+    display: block;
+    font-size: 17px;
+    padding: 17px 25px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
 }
 
 /*akhir movie

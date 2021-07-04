@@ -3,7 +3,11 @@ import CONFIG from '../../globals/config'
 const createMenuItemTemplate = (restaurant) => `
         <div class="menu-container">
             <div class="menu-image">
-                <img src="${CONFIG.BASE_SMALL_IMAGE_URL + restaurant.pictureId}" class="menu-image" alt="${restaurant.name}">
+                <picture>
+                    <source media="(max-width: 499px)" data-srcset="${CONFIG.BASE_SMALL_IMAGE_URL + restaurant.pictureId}">
+                    <source media="(max-width: 899px)" data-srcset="${CONFIG.BASE_MEDIUM_IMAGE_URL + restaurant.pictureId}">
+                    <img data-src="${CONFIG.BASE_LARGE_IMAGE_URL + restaurant.pictureId}" class="menu-image lazyload" alt="${restaurant.name}">
+                </picture>
             </div>
             <div class="content" tabindex="0">
                 <p class="rating">Rating: ${restaurant.rating}</p>
@@ -17,7 +21,11 @@ const createMenuItemTemplate = (restaurant) => `
 const createMenuDetailTemplate = (restaurant) => `
         <div class="menu__main__info" tabindex="0">
             <h2 class="menu__title">${restaurant.name}</h2>
-            <img class="menu__poster" src="${CONFIG.BASE_MEDIUM_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
+            <picture class="menu__poster">
+                <source media="(max-width: 499px)" data-srcset="${CONFIG.BASE_SMALL_IMAGE_URL + restaurant.pictureId}">
+                <source media="(max-width: 899px)" data-srcset="${CONFIG.BASE_MEDIUM_IMAGE_URL + restaurant.pictureId}">
+                <img data-src="${CONFIG.BASE_LARGE_IMAGE_URL + restaurant.pictureId}" class="menu-image lazyload" alt="${restaurant.name}">
+            </picture>
             <div class="menu__info">
                 <h3>Information</h3>
                 <h4>Alamat Lengkap</h4>
@@ -37,12 +45,27 @@ const createMenuDetailTemplate = (restaurant) => `
             </div>
         </div>
         <div class="reviews__container" tabindex="0">
-            ${restaurant.customerReviews.map((review) => `
-                <div class="review">
-                    <h4>${review.name}</h4>
-                    <p class="date__review">${review.date}</p>
-                    <p class="review__content">${review.review}</p>
-                </div>`).join('')}
+            <div class="other_users_reviews">
+                ${restaurant.customerReviews.map((review) => `
+                    <div class="review">
+                        <h4>${review.name}</h4>
+                        <p class="date__review">${review.date}</p>
+                        <p class="review__content">${review.review}</p>
+                    </div>`).join('')}
+            </div>
+            <div class="form__review">
+                <form>
+                    <input name="reviewers_name" type="text" id="reviewers_name" placeholder="Nama">
+                    <input name="input_review" type="text" id="input_review" placeholder="Masukkan Pendapat kamu..">
+                    <button id="submit_review" type="submit">Kirim</button>
+                </form>
+            </div>
+        </div>
+    `
+
+const createItemNotFoundTemplate = () => `
+        <div class="item_not_found">
+            Belum ada yang kamu jadiin Restoran Favorit nih.. :(
         </div>
     `
 
@@ -58,4 +81,4 @@ const createLikedButtonTemplate = () => `
     </button>
 `
 
-export { createMenuItemTemplate, createMenuDetailTemplate, createLikeButtonTemplate, createLikedButtonTemplate }
+export { createMenuItemTemplate, createMenuDetailTemplate, createItemNotFoundTemplate, createLikeButtonTemplate, createLikedButtonTemplate }

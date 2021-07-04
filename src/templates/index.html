@@ -33,7 +33,11 @@
         </nav>
         <div class="hero">
             <div class="hero-image-box">
-                <img class="hero-image" src="hero-image_3.jpg" alt="hero-image">
+                <picture>
+                    <source media="(max-width: 499px)" data-srcset="hero-image_3-small.jpg">
+                    <source media="(max-width: 899px)" data-srcset="hero-image_3-medium.jpg">
+                    <img data-src="hero-image_3-large.jpg" class="hero-image lazyload" alt="hero-image">
+                </picture>
             </div>
             <div class="hero-inner">
                 <h1 class="hero-inner-primary"><span class="welcome">Selamat Datang di </span><br> <span id="hunger-app">Foodilo</span> <br> <span class="welcome">Wilujeng mamam...</span></h1>
